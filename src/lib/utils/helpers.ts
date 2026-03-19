@@ -1,1 +1,1 @@
-// Ready for code
+export const formatDate = (date: Date) => date.toLocaleDateString();

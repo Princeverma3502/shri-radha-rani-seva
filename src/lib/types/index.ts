@@ -1,1 +1,4 @@
-// Ready for code
+export interface Event {
+  id: string;
+  title: string;
+}
