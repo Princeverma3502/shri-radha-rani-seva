@@ -7,10 +7,10 @@ import { Menu, X, Heart } from "lucide-react";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Restored your full list with Hindi & English
   const navLinks = [
     { name: "होम (Home)", href: "/" },
-    { name: "हमारे बारे में (About)", href: "/about" },
+    { name: "कार्यक्रम (Events)", href: "/events" },
+    { name: "समिति (Committee)", href: "/committee" },
     { name: "गौ सेवा (Gau Seva)", href: "/seva/gau-seva" },
     { name: "वृद्धाश्रम (Old Age Home)", href: "/seva/old-age-home" },
     { name: "गैलरी (Gallery)", href: "/gallery" },
@@ -22,52 +22,38 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           
-          {/* LOGO SECTION */}
-          <Link href="/" className="flex items-center gap-3 shrink-0 group">
-            <div className="relative h-12 w-12 md:h-14 md:w-14">
-              <img 
-                src="/assets/icons/logo.png" 
-                alt="Shri Radha Rani Logo" 
-                className="h-full w-full rounded-full border-2 border-red-900 object-cover shadow-sm group-hover:scale-105 transition-transform"
-                onError={(e) => (e.currentTarget.src = "https://placehold.co/100x100/fef2e2/991b1b?text=Logo")}
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-black text-red-900 text-lg md:text-xl leading-tight tracking-tight">
-                श्री राधा रानी सेवा संस्थान
-              </span>
-            </div>
+          <Link href="/" className="flex items-center gap-3 shrink-0">
+            <span className="font-black text-red-900 text-lg md:text-xl leading-tight">
+              श्री राधा रानी सेवा संस्थान
+            </span>
           </Link>
 
-          {/* DESKTOP TABS - Visible on md screens and up */}
-          <div className="hidden md:flex items-center gap-1 lg:gap-4">
+          {/* DESKTOP MENU */}
+          <div className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link 
-                key={link.name} 
+                key={link.href} 
                 href={link.href}
-                className="px-3 py-2 text-gray-700 hover:text-red-900 font-bold text-[13px] lg:text-sm transition-all rounded-lg hover:bg-orange-50"
+                className="px-3 py-2 text-gray-700 hover:text-red-900 font-bold text-sm transition-all rounded-lg hover:bg-orange-50 whitespace-nowrap"
               >
                 {link.name}
               </Link>
             ))}
-            
-            {/* Donate Button */}
             <Link 
-              href="/donate"
-              className="ml-2 bg-red-900 hover:bg-red-800 text-white px-5 py-2.5 rounded-full font-bold shadow-md transition-all hover:shadow-lg flex items-center gap-2 text-sm"
+              href="/donations"
+              className="ml-4 bg-red-900 hover:bg-red-800 text-white px-6 py-2.5 rounded-full font-bold shadow-md transition-all flex items-center gap-2 text-sm"
             >
               <Heart size={16} fill="white" /> दान करें
             </Link>
           </div>
 
-          {/* MOBILE TOGGLE BUTTON */}
-          <div className="flex items-center md:hidden">
+          {/* MOBILE TOGGLE */}
+          <div className="flex items-center xl:hidden">
             <button 
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 text-red-900 hover:bg-orange-50 rounded-xl transition-colors"
-              aria-label="Toggle Menu"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={30} /> : <Menu size={30} />}
             </button>
           </div>
         </div>
@@ -75,21 +61,21 @@ export default function Navbar() {
 
       {/* MOBILE MENU DROPDOWN */}
       {isOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-white border-b-2 border-orange-100 shadow-2xl animate-in slide-in-from-top duration-300">
-          <div className="px-4 pt-2 pb-6 space-y-1 bg-[#FFFCF5]">
+        <div className="xl:hidden absolute top-20 left-0 w-full bg-white border-b-2 border-orange-100 shadow-2xl animate-in slide-in-from-top duration-300">
+          <div className="px-4 pt-2 pb-8 space-y-1 bg-[#FFFCF5] max-h-[85vh] overflow-y-auto">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-4 py-4 text-base font-bold text-gray-800 hover:bg-orange-100 hover:text-red-900 rounded-xl transition-colors"
+                className="block px-4 py-4 text-base font-bold text-gray-800 hover:bg-orange-100 hover:text-red-900 rounded-xl transition-colors border-b border-orange-50 last:border-0"
               >
                 {link.name}
               </Link>
             ))}
-            <div className="pt-4">
+            <div className="pt-6">
               <Link 
-                href="/donate"
+                href="/donations"
                 onClick={() => setIsOpen(false)}
                 className="flex items-center justify-center gap-2 w-full bg-red-900 text-white py-4 rounded-2xl font-black shadow-lg"
               >

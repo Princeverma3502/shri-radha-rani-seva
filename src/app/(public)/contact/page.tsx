@@ -33,7 +33,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-800">पता (Address)</p>
-                      <p className="text-gray-600">वृंदावन, मथुरा, उत्तर प्रदेश - 281121</p>
+                      <p className="text-gray-600">गोरखपुर, उत्तर प्रदेश - 273005</p>
                     </div>
                   </div>
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-800">फ़ोन (Phone)</p>
-                      <p className="text-gray-600">+91 99999 88888</p>
+                      <p className="text-gray-600">+91 9005844342</p>
                     </div>
                   </div>
 

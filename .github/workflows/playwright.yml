@@ -37,3 +37,7 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+
+    - name: Final Approval
+      if: success()
+      run: echo "All tests passed. Ready for Vercel Deployment!"
