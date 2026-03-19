@@ -1,7 +1,8 @@
-import Hero from "@/components/sections/Hero";
-import FeaturedEvents from "@/components/sections/FeaturedEvents";
-import AboutCommittee from "@/components/sections/AboutCommittee";
-import SevaShowcase from "@/components/sections/SevaShowcase";
+import AboutCommittee from "../components/sections/AboutCommittee";
+import FeaturedEvents from "../components/sections/FeaturedEvents";
+import Hero from "../components/sections/Hero";
+import SevaShowcase from "../components/sections/SevaShowcase";
+
 
 export default function HomePage() {
   return (
