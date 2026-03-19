@@ -1,31 +1,49 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { useEffect, useRef, useState } from "react";
 
-interface FadeInProps {
-  children: ReactNode;
-  delay?: number;
+export default function FadeIn({ 
+  children, 
+  delay = 0, 
+  direction = "up" 
+}: { 
+  children: React.ReactNode; 
+  delay?: number; 
   direction?: "up" | "down" | "left" | "right" | "none";
-}
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const domRef = useRef<HTMLDivElement>(null);
 
-export default function FadeIn({ children, delay = 0, direction = "up" }: FadeInProps) {
-  const directions = {
-    up: { y: 40, x: 0 },
-    down: { y: -40, x: 0 },
-    left: { x: 40, y: 0 },
-    right: { x: -40, y: 0 },
-    none: { x: 0, y: 0 },
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      });
+    }, { threshold: 0.1 }); // Triggers when 10% of the element is visible
+
+    const currentRef = domRef.current;
+    if (currentRef) observer.observe(currentRef);
+    return () => { if (currentRef) observer.unobserve(currentRef); };
+  }, []);
+
+  // Determine initial transform based on direction
+  let initialTransform = "translate-y-10"; // default up
+  if (direction === "down") initialTransform = "-translate-y-10";
+  if (direction === "left") initialTransform = "translate-x-10";
+  if (direction === "right") initialTransform = "-translate-x-10";
+  if (direction === "none") initialTransform = "translate-x-0 translate-y-0";
 
   return (
-    <motion.div
-      initial={{ opacity: 0, ...directions[direction] }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, delay, ease: "easeOut" }}
+    <div
+      ref={domRef}
+      className={`transition-all duration-1000 ease-out ${
+        isVisible ? "opacity-100 translate-y-0 translate-x-0" : `opacity-0 ${initialTransform}`
+      }`}
+      style={{ transitionDelay: `${delay}s` }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

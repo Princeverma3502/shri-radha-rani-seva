@@ -1,59 +1,63 @@
 import Link from "next/link";
-import { HeartHandshake, MapPin, Phone, Mail } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-spiritual-dark text-spiritual-cream pt-16 pb-8 border-t-4 border-spiritual-saffron">
+    <footer className="bg-red-900 pt-16 pb-8 border-t-8 border-orange-500">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           
-          {/* About Column */}
+          {/* Brand & About */}
           <div>
-            <h3 className="text-2xl font-bold text-spiritual-saffron mb-4">श्री राधा रानी सेवा संस्थान</h3>
-            <p className="text-gray-300 mb-6 leading-relaxed">
-              समर्पित भाव से गौ सेवा, श्रीमद् भागवत कथा आयोजन, और समाज कल्याण (वृद्धाश्रम एवं नेत्रहीन सेवा) के लिए कार्यरत एक पंजीकृत संस्था।
+            <h3 className="text-2xl font-extrabold !text-white mb-6 flex items-center gap-3">
+              <img 
+                src="/assets/icons/logo.png" 
+                alt="Logo" 
+                className="w-10 h-10 rounded-full border border-orange-400 object-contain bg-white"
+              />
+              श्री राधा रानी सेवा संस्थान (रजि०)
+            </h3>
+            <p className="!text-white font-medium leading-relaxed">
+              हमारा संकल्प बेसहारा गोवंश और असहाय बुजुर्गों को एक सम्मानजनक, सुरक्षित और प्रेमपूर्ण जीवन प्रदान करना है। एक पंजीकृत संस्था के रूप में, हम पूरी पारदर्शिता के साथ समाज सेवा के लिए प्रतिबद्ध हैं।
             </p>
-            <Link href="/donate" className="inline-flex items-center gap-2 bg-spiritual-saffron text-white px-4 py-2 rounded hover:bg-spiritual-deepSaffron transition">
-              <HeartHandshake size={18} />
-              सहयोग करें
-            </Link>
           </div>
 
-          {/* Quick Links Column */}
+          {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-4 border-b border-gray-600 pb-2 inline-block">महत्वपूर्ण लिंक</h3>
-            <ul className="space-y-3">
-              <li><Link href="/about" className="text-gray-300 hover:text-spiritual-saffron transition">हमारे बारे में (About Us)</Link></li>
-              <li><Link href="/seva/gau-seva" className="text-gray-300 hover:text-spiritual-saffron transition">गौ सेवा (Gau Seva)</Link></li>
-              <li><Link href="/events" className="text-gray-300 hover:text-spiritual-saffron transition">आगामी कथाएं (Upcoming Kathas)</Link></li>
-              <li><Link href="/jajmaan" className="text-gray-300 hover:text-spiritual-saffron transition">यजमान बनें (Become Jajmaan)</Link></li>
-              <li><Link href="/committee" className="text-gray-300 hover:text-spiritual-saffron transition">समिति सदस्य (Committee)</Link></li>
+            <h4 className="text-xl font-bold !text-white mb-6">त्वरित लिंक (Links)</h4>
+            <ul className="space-y-3 font-medium">
+              <li><Link href="/about" className="block !text-gray-200 hover:!text-white transition-colors">हमारे बारे में (About Us)</Link></li>
+              <li><Link href="/seva/gau-seva" className="block !text-gray-200 hover:!text-white transition-colors">गौ सेवा (Gau Seva)</Link></li>
+              <li><Link href="/seva/old-age-home" className="block !text-gray-200 hover:!text-white transition-colors">वृद्धाश्रम (Old Age Home)</Link></li>
+              <li><Link href="/donate" className="block !text-orange-300 font-bold hover:!text-white transition-colors">दान करें (Donate Now)</Link></li>
             </ul>
           </div>
 
-          {/* Contact Column */}
+          {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-4 border-b border-gray-600 pb-2 inline-block">संपर्क करें</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-gray-300">
-                <MapPin className="text-spiritual-saffron flex-shrink-0 mt-1" size={20} />
-                <span>आपका पंजीकृत पता यहाँ आएगा (Your Registered Address Here)</span>
+            <h4 className="text-xl font-bold !text-white mb-6">संपर्क करें (Contact)</h4>
+            <ul className="space-y-4 font-medium">
+              <li className="flex items-start gap-3">
+                <MapPin className="!text-orange-400 shrink-0 mt-1" size={20} />
+                <span className="!text-gray-200">
+                  श्री राधा रानी सेवा संस्थान (रजि०),<br />
+                  गोरखपुर, उत्तर प्रदेश, भारत
+                </span>
               </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <Phone className="text-spiritual-saffron flex-shrink-0" size={20} />
-                <span>+91 98765 43210</span>
+              <li className="flex items-center gap-3">
+                <Phone className="!text-orange-400 shrink-0" size={20} />
+                <span className="!text-gray-200">+91 9005844342</span> {/* UPDATE YOUR PHONE NO HERE */}
               </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <Mail className="text-spiritual-saffron flex-shrink-0" size={20} />
-                <span>contact@radharaniseva.org</span>
+              <li className="flex items-center gap-3">
+                <Mail className="!text-orange-400 shrink-0" size={20} />
+                <span className="!text-gray-200">shreeradharanisewasansthan@gmail.com</span> {/* UPDATE YOUR EMAIL HERE */}
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} Shri Radha Rani Seva Sansthan. All rights reserved.</p>
-          <p className="mt-2 md:mt-0">Developed with Devotion.</p>
+        <div className="border-t border-red-800 pt-8 text-center text-sm font-medium">
+          <p className="!text-gray-300">© {new Date().getFullYear()} Shri Radha Rani Seva Sansthan, Gorakhpur. All rights reserved.</p>
         </div>
       </div>
     </footer>
