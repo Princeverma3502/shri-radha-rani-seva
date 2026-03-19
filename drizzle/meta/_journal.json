@@ -8,6 +8,13 @@
       "when": 1773836036921,
       "tag": "0000_gigantic_talon",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1773955079652,
+      "tag": "0001_real_blonde_phantom",
+      "breakpoints": true
     }
   ]
 }
