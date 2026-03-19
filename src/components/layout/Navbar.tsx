@@ -8,13 +8,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "होम (Home)", href: "/" },
-    { name: "कार्यक्रम (Events)", href: "/events" },
-    { name: "समिति (Committee)", href: "/committee" },
-    { name: "गौ सेवा (Gau Seva)", href: "/seva/gau-seva" },
-    { name: "वृद्धाश्रम (Old Age Home)", href: "/seva/old-age-home" },
-    { name: "गैलरी (Gallery)", href: "/gallery" },
-    { name: "संपर्क (Contact)", href: "/contact" },
+    { name: "होम", href: "/" },
+    { name: "कार्यक्रम", href: "/events" },
+    { name: "समिति", href: "/committee" },
+    { name: "गौ सेवा", href: "/seva/gau-seva" },
+    { name: "वृद्धाश्रम", href: "/seva/old-age-home" },
+    { name: "गैलरी", href: "/gallery" },
+    { name: "संपर्क", href: "/contact" },
   ];
 
   return (
